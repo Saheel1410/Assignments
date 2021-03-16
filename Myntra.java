@@ -57,22 +57,21 @@ public class Myntra {
 		driver.findElementByXPath("(//div[@class='common-checkboxIndicator'])[11]").click();
 		driver.findElementByXPath("//span[@class='myntraweb-sprite FilterDirectory-close sprites-remove']").click();
 
-		String nameOfProduct = "MANGO";
+		
 		List<WebElement> listOfNames = driver.findElementsByXPath("//h3[text()='MANGO']");
 
-		for (WebElement allNames : listOfNames) {
-			System.out.println(allNames.getText());
-
+//		for (WebElement allNames : listOfNames) {
+//			System.out.println(allNames.getText());
+//
+//		}
+//
+		for (int i = 0; i < listOfNames.size(); i++) {
+			if(listOfNames.get(i).getText().equals("MANGO")) {
+				System.out.println("All Brand Matches");		
+			}else {
+				System.out.println("All Brand Doesnt Matches");
+				}
 		}
-
-//		for (int i = 0; i < listOfNames.size(); i++) {
-//			WebElement brandNames = listOfNames.get(i) ;
-//			if (brandNames == nameOfProduct ) {
-//				System.out.println("True");		
-//			}else {
-//				System.out.println("False");
-//				}
-
 		WebElement sortEle = driver.findElementByXPath("//div[@class='sort-sortBy']");
 		builder.moveToElement(sortEle).perform();
 		driver.findElementByXPath("//label[text()='Better Discount']").click();
@@ -87,4 +86,5 @@ public class Myntra {
 
 	}
 
-}
+	}
+
